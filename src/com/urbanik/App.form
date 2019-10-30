@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="com.urbanik.App">
+  <grid id="27dc6" binding="panelMain" layout-manager="GridLayoutManager" row-count="5" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="0" left="0" bottom="0" right="0"/>
+    <constraints>
+      <xy x="20" y="20" width="641" height="144"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <component id="90b32" class="javax.swing.JButton" binding="testSplay">
+        <constraints>
+          <grid row="4" column="3" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Test Splay tree"/>
+        </properties>
+      </component>
+      <component id="bebf" class="javax.swing.JTextField" binding="numberOfItemsAtStart">
+        <constraints>
+          <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <text value="N items at start"/>
+        </properties>
+      </component>
+      <component id="44d02" class="javax.swing.JTextField" binding="numberOfOperations">
+        <constraints>
+          <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="134" height="24"/>
+          </grid>
+        </constraints>
+        <properties>
+          <name value=""/>
+          <opaque value="false"/>
+          <text value="Number of operations"/>
+          <verifyInputWhenFocusTarget value="true"/>
+          <visible value="true"/>
+        </properties>
+      </component>
+      <component id="9534c" class="javax.swing.JButton" binding="planeArrivalInformationInputButton">
+        <constraints>
+          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="1. Plane arrived"/>
+        </properties>
+      </component>
+      <component id="bced3" class="javax.swing.JTextField" binding="airplaneCode">
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="140" height="24"/>
+          </grid>
+        </constraints>
+        <properties>
+          <text value="Airplane code"/>
+        </properties>
+      </component>
+      <component id="5059" class="javax.swing.JButton" binding="testPairingHeap">
+        <constraints>
+          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="140" height="24"/>
+          </grid>
+        </constraints>
+        <properties>
+          <text value="Test Pairing heap"/>
+        </properties>
+      </component>
+      <component id="a39dd" class="javax.swing.JTextField" binding="priority">
+        <constraints>
+          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="140" height="24"/>
+          </grid>
+        </constraints>
+        <properties>
+          <text value="New priority"/>
+        </properties>
+      </component>
+      <component id="76dfc" class="javax.swing.JButton" binding="a8ChangePriorityButton" default-binding="true">
+        <constraints>
+          <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="8. Change priority"/>
+        </properties>
+      </component>
+      <component id="10fa1" class="javax.swing.JButton" binding="a9PrintRunwaysButton" default-binding="true">
+        <constraints>
+          <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="134" height="24"/>
+          </grid>
+        </constraints>
+        <properties>
+          <text value="9. Print runways"/>
+        </properties>
+      </component>
+      <component id="5f61e" class="javax.swing.JButton" binding="stopDemand">
+        <constraints>
+          <grid row="3" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="10. Reject runway demand"/>
+        </properties>
+      </component>
+      <component id="4e5f6" class="javax.swing.JButton" binding="searchAriplaneOnRunway">
+        <constraints>
+          <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="4. Search AP on runway"/>
+        </properties>
+      </component>
+      <component id="c49cb" class="javax.swing.JButton" binding="departure">
+        <constraints>
+          <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="134" height="24"/>
+          </grid>
+        </constraints>
+        <properties>
+          <text value="5. Departure"/>
+        </properties>
+      </component>
+      <component id="39d8f" class="javax.swing.JLabel" binding="systemDate">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="12:00 1-1-2019"/>
+        </properties>
+      </component>
+      <component id="246f1" class="javax.swing.JButton" binding="addHour">
+        <constraints>
+          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="134" height="24"/>
+          </grid>
+        </constraints>
+        <properties>
+          <text value="Add hour"/>
+        </properties>
+      </component>
+      <component id="f9a6c" class="javax.swing.JButton" binding="savetoFile">
+        <constraints>
+          <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Save"/>
+        </properties>
+      </component>
+      <component id="93062" class="javax.swing.JButton" binding="loadFromFile">
+        <constraints>
+          <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Load"/>
+        </properties>
+      </component>
+      <component id="76ba6" class="javax.swing.JButton" binding="printWaitingAirplanes">
+        <constraints>
+          <grid row="2" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="6. Print waiting planes"/>
+        </properties>
+      </component>
+      <component id="fca2e" class="javax.swing.JButton" binding="runwayDemand">
+        <constraints>
+          <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="134" height="24"/>
+          </grid>
+        </constraints>
+        <properties>
+          <text value="2. Demand runway"/>
+        </properties>
+      </component>
+      <component id="dfdc" class="javax.swing.JButton" binding="searchAirplane">
+        <constraints>
+          <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="3. Search airplane"/>
+        </properties>
+      </component>
+      <component id="c8cb0" class="javax.swing.JTextField" binding="runwayId">
+        <constraints>
+          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <text value="Runway ID"/>
+        </properties>
+      </component>
+    </children>
+  </grid>
+</form>
