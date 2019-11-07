@@ -15,6 +15,7 @@ public class TestPairingHeap {
     private Random random;
     private int numberOfitemsAtStart;
     private int numberOfOperations;
+    private List<Integer> list;
     private List<Integer> deletedFromPQ;
     private List<Integer> deletedFromPH;
 
@@ -22,15 +23,17 @@ public class TestPairingHeap {
 
         priorityQueue = new PriorityQueue<>();
         pairingHeap = new PairingHeap();
+        list = new ArrayList<>();
         this.numberOfitemsAtStart = numberOfitemsAtStart;
         this.numberOfOperations = numberOfOperations;
+
         deletedFromPQ = new ArrayList<>();
         deletedFromPH = new ArrayList<>();
 
         random = new Random();
         ArrayList<Integer> numbersStart = new ArrayList<Integer>();
 
-        while (pairingHeap.size() < numberOfitemsAtStart) { // numbersStart.size()
+        /*while (pairingHeap.size() < numberOfitemsAtStart) { // numbersStart.size()
             int data = getRandomInt(1, numberOfitemsAtStart); // *2
 
             //if (!numbersStart.contains(data)) {
@@ -38,8 +41,21 @@ public class TestPairingHeap {
                 //System.out.println("Adding priority: " + data);
                 pairingHeap.insert(data);
                 priorityQueue.add(data);
+                list.add(data);
            // }
-        }
+        }*/
+        pairingHeap.insert(getRandomInt(1, 10));
+        pairingHeap.insert(getRandomInt(1, 10));
+        int mazany1 = getRandomInt(1, 10);
+        pairingHeap.insert(mazany1);
+        pairingHeap.insert(getRandomInt(1, 10));
+        int mazany2 = getRandomInt(1, 10);
+        pairingHeap.insert(mazany2);
+        pairingHeap.insert(getRandomInt(1, 10));
+        int mazany3 = getRandomInt(1, 10);
+        pairingHeap.insert(mazany3);
+        pairingHeap.insert(getRandomInt(1, 10));
+
     }
 
     public int getRandomInt(int min, int max) {
@@ -59,7 +75,7 @@ public class TestPairingHeap {
 
         for (int i = 0; i < numberOfOperations; i++) {
 
-            int operation = random.nextInt(3);
+            int operation = random.nextInt(2);
 
             switch (operation) {
                 case 0: {
@@ -67,14 +83,32 @@ public class TestPairingHeap {
                     int data = getRandomInt(1, numberOfOperations);
                     priorityQueue.add(data);
                     pairingHeap.insert(data);
-
+                    list.add(data);
+                    break;
                     //numbersOperations.remove(numbersOperations.size() - 1);
                 }
                 case 1: {
                     deletedFromPQ.add(priorityQueue.peek());
                     deletedFromPH.add((Integer) pairingHeap.getRoot().getData());
+                    list.remove(priorityQueue.peek());
                     priorityQueue.poll();
                     pairingHeap.removeMinimum();
+                    break;
+                }
+                case 2: {
+                    list.get(list.size()-1);
+                    priorityQueue.remove(list.get(list.size()-1));
+                    list.remove(list.size()-1);
+                    break;
+
+                }
+                case 3: {
+                    int data = getRandomInt(1, numberOfOperations);
+                    break;
+                }
+                case 4: {
+                    int data = getRandomInt(1, numberOfOperations);
+                    break;
                 }
             }
         }

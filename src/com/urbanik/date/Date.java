@@ -1,6 +1,6 @@
 package com.urbanik.date;
 
-public class Date {
+public class Date implements Comparable<Date>{
 
     private int hours;
     private int day;
@@ -13,6 +13,22 @@ public class Date {
         this.day = day;
         this.month = month;
         this.year = year;
+    }
+
+    public int getHours() {
+        return hours;
+    }
+
+    public int getDay() {
+        return day;
+    }
+
+    public int getMonth() {
+        return month;
+    }
+
+    public int getYear() {
+        return year;
     }
 
     public void addHour(){
@@ -36,5 +52,20 @@ public class Date {
         return  this.hours +":00 "+ day +
                 "-" + month +
                 "-" + year;
+    }
+
+    @Override
+    public int compareTo(Date o) {
+
+
+        if(this.getHours() < o.getHours()){ // AK JE VACSIA HODNOTA, TEDA NIZSIA PRIORITA
+
+            return -1;
+
+        } else{ // AK JE MENSIA HODNOTA, TEDA VYSSIA PRIORITA
+
+            return 1;
+
+        }
     }
 }

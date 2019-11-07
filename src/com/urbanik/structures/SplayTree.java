@@ -23,6 +23,9 @@ public class SplayTree <D extends Comparable<D>> {
 
     public Node<D> find(D data){
 
+        if(this.root == null){
+            return null;
+        }
         Node<D> current = this.root;
         Node<D> parent = null;
 
@@ -32,6 +35,10 @@ public class SplayTree <D extends Comparable<D>> {
                 current = current.getRightSon();
             } else {
                 current = current.getLeftSon();
+            }
+            if (current == null) {
+                splay(parent);
+                return null;
             }
         }
 
@@ -87,13 +94,13 @@ public class SplayTree <D extends Comparable<D>> {
         }
     }
 
-    public void remove(D data) {
+    public void remove(D data){
 
         Node<D> current = root;
         Node<D> parent = null;
         boolean isLeftSon = true;
 
-        while (data.compareTo(current.getData()) != 0) { // najdem vrchol
+        while (data.compareTo(current.getData()) != 0) {
             parent = current;
             if (data.compareTo(current.getData()) > 0) {
                 isLeftSon = false;
@@ -105,8 +112,14 @@ public class SplayTree <D extends Comparable<D>> {
             if (current == null)
                 return;
         }
-        //Node<D> current = node;
-        //Node<D> parent = node.getParent();
+        size--;
+        this.delete(current, isLeftSon);
+    }
+
+    private void delete (Node<D> node, boolean isLeftSon) {
+
+        Node<D> current = node;
+        Node<D> parent = node.getParent();
 
         if (current.getLeftSon() == null && current.getRightSon() == null) { // bezdetny
             current = null;
@@ -119,11 +132,7 @@ public class SplayTree <D extends Comparable<D>> {
                 parent.setRightSon(null);
             }
 
-            if(parent != null){
-                this.splay(parent);
-            }
-
-            size--;
+            this.splay(parent);
             return;
         }
 
@@ -134,7 +143,6 @@ public class SplayTree <D extends Comparable<D>> {
 
                 this.root = current.getRightSon();
                 this.root.setParent(null);
-                size--;
             }
             else if (isLeftSon) {
 
@@ -148,11 +156,9 @@ public class SplayTree <D extends Comparable<D>> {
                 current.getRightSon().setParent(parent);
             }
             current = null;
-
             if (parent != null) {
 
                 this.splay(parent);
-                size--;
             }
             return;
         }
@@ -182,39 +188,33 @@ public class SplayTree <D extends Comparable<D>> {
             if (parent != null) {
 
                 this.splay(parent);
-
             }
-            size--;
             return;
         }
 
         //Ak má dvoch synov
-        if(current.getLeftSon() != null && current.getRightSon() != null){ // ma oboch synov
 
-            Node<D> successor = getSuccessor(current); // najdem minimum v pravom podstrome
 
-            if(current == this.root){
+        Node<D> successor = this.getSuccessor(current.getRightSon()); // min z pravej strany
 
-                this.root = current.getLeftSon();
-                current.getLeftSon().setParent(parent);
+        Node<D> tmp = new Node<D>(current.getData());
 
-            }else if(isLeftSon){
+        D dataTmp = current.getData();
 
-                parent.setLeftSon(successor);
-                current.getRightSon().setParent(parent);
+        current.setData(successor.getData());
+        successor.setData(dataTmp);
 
-            }else{
+        if (successor == successor.getParent().getLeftSon()) {
 
-                parent.setRightSon(successor);
-                current.getRightSon().setParent(parent);
+            isLeftSon = true;
+        } else{
 
-            }
-
-            successor.setRightSon(current.getRightSon());
-            size--;
+            isLeftSon = false;
         }
-        //this.remove(successor.getData());
+
+        this.delete(successor, isLeftSon);
     }
+
 
     private void splay(Node node) {
 
@@ -369,7 +369,7 @@ public class SplayTree <D extends Comparable<D>> {
         Stack<Node> nodes = new Stack<>();
 
         Node current = root;
-        //System.out.print(current.getData() + " is root. ");
+        System.out.print(current.getData() + " is root. ");
         while (!nodes.isEmpty() || current != null) {
 
             if (current != null) {
@@ -377,8 +377,7 @@ public class SplayTree <D extends Comparable<D>> {
                 current = current.getLeftSon();
             } else {
                 Node node = nodes.pop();
-                System.out.print(node.getData().toString());
-                System.out.print(" \n");
+                System.out.print(node.getData().toString() + " ");
                 current = node.getRightSon();
             }
         }

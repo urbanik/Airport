@@ -2,35 +2,34 @@ package com.urbanik.mappers;
 
 import com.urbanik.dto.AirplaneDto;
 import com.urbanik.entity.Airplane;
-import com.urbanik.entity.AirplaneByCode;
 
-public class AirplaneMapper {
+public class AirplaneMapper implements BaseMapper<Airplane, AirplaneDto>{
 
     public AirplaneMapper() {
     }
 
-    public Airplane dtoToEntity(AirplaneDto airplaneDto){
-
-        Airplane airplane = new Airplane();
-        airplane.setCode(airplaneDto.getCode());
-
-        return airplane;
-    }
-
-    public AirplaneDto entityToDto(Airplane airplane){
+    @Override
+    public AirplaneDto entityToDto(Airplane entity) {
 
         AirplaneDto dto = new AirplaneDto();
-        dto.setManufacturer(airplane.getManufacturer());
-        dto.setType(airplane.getType());
-        dto.setCode(airplane.getCode());
-        dto.setMinDepartureRunwayLength(airplane.getMinDepartureRunwayLength());
-        dto.setArrivalDate(airplane.getArrivalDate());
-        dto.setRunwayDemandDate(airplane.getRunwayDemandDate());
-        dto.setDepartureDate(airplane.getDepartureDate());
-        dto.setPriority(airplane.getPriority());
-        dto.setPresence(airplane.isPresent());
-        dto.setWaiting(airplane.isWaiting());
-
+        dto.setManufacturer(entity.getManufacturer());
+        dto.setType(entity.getType());
+        dto.setCode(entity.getCode());
+        dto.setMinDepartureRunwayLength(entity.getMinDepartureRunwayLength());
+        dto.setPriority(entity.getPriority());
         return dto;
+    }
+
+    @Override
+    public Airplane dtoToEntity(AirplaneDto dto) {
+
+        Airplane airplane = new Airplane();
+        airplane.setManufacturer(dto.getManufacturer());
+        airplane.setType(dto.getType());
+        airplane.setCode(dto.getCode());
+        airplane.setMinDepartureRunwayLength(dto.getMinDepartureRunwayLength());
+        airplane.setPriority(dto.getPriority());
+        airplane.setSystemDepartureLength();
+        return airplane;
     }
 }

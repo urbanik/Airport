@@ -8,24 +8,16 @@ public class Airplane {
     private String type;
     private String code;
     private int minDepartureRunwayLength;
-
-    private Date arrivalDate;
-    boolean presence;
-
-    private Date runwayDemandDate;
-    private boolean waiting;
-
-    private Date departureDate;
+    private int systemDepartureLength;
     private int priority;
+
 
     public Airplane() {
         this.manufacturer = null;
         this.type = null;
         this.code = null;
         this.minDepartureRunwayLength = 0;
-        this.priority = 0;
-        this.presence = false;
-        this.waiting = false;
+        priority = 0;
     }
 
     public Airplane(String manufacturer, String type, String code, int minDepartureRunwayLength, int priority) {
@@ -34,8 +26,7 @@ public class Airplane {
         this.code = code;
         this.minDepartureRunwayLength = minDepartureRunwayLength;
         this.priority = priority;
-        this.presence = false;
-        this.waiting = false;
+        setSystemDepartureLength();
     }
 
     public String getManufacturer() {
@@ -70,44 +61,29 @@ public class Airplane {
         return minDepartureRunwayLength;
     }
 
-    public boolean isWaiting() {
-        return waiting;
+    public int getSystemDepartureLength() {
+        return systemDepartureLength;
     }
 
-    public boolean isPresent() {
-        return presence;
-    }
+    public void setSystemDepartureLength() {
 
-    public void setWaiting(boolean waiting) {
-        this.waiting = waiting;
-    }
+        if(this.minDepartureRunwayLength <= 1500){
+            this.systemDepartureLength = 1500;
+            return;
+        }else if(this.minDepartureRunwayLength <= 2000){
+            this.systemDepartureLength = 2000;
+            return;
+        }else if(this.minDepartureRunwayLength <= 2500){
+            this.systemDepartureLength = 2500;
+            return;
+        }else if(this.minDepartureRunwayLength <= 3000){
+            this.systemDepartureLength = 3000;
+            return;
+        }else{
+            this.systemDepartureLength = 3500;
+            return;
+        }
 
-    public void setPresence(boolean presence) {
-        this.presence = presence;
-    }
-
-    public Date getArrivalDate() {
-        return arrivalDate;
-    }
-
-    public void setArrivalDate(Date arrivalDate) {
-        this.arrivalDate = arrivalDate;
-    }
-
-    public Date getRunwayDemandDate() {
-        return runwayDemandDate;
-    }
-
-    public void setRunwayDemandDate(Date runwayDemandDate) {
-        this.runwayDemandDate = runwayDemandDate;
-    }
-
-    public Date getDepartureDate() {
-        return departureDate;
-    }
-
-    public void setDepartureDate(Date departureDate) {
-        this.departureDate = departureDate;
     }
 
     public int getPriority() {
@@ -116,21 +92,5 @@ public class Airplane {
 
     public void setPriority(int priority) {
         this.priority = priority;
-    }
-
-    @Override
-    public String toString() {
-        return "Airplane{" +
-                "manufacturer='" + manufacturer + '\'' +
-                ", type='" + type + '\'' +
-                ", code='" + code + '\'' +
-                ", minDepartureRunwayLength=" + minDepartureRunwayLength +
-                ", arrivalDate=" + arrivalDate +
-                ", presence=" + presence +
-                ", runwayDemandDate=" + runwayDemandDate +
-                ", waiting=" + waiting +
-                ", departureDate=" + departureDate +
-                ", priority=" + priority +
-                '}';
     }
 }

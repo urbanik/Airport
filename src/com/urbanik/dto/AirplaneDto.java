@@ -8,14 +8,6 @@ public class AirplaneDto {
     private String type;
     private String code;
     private int minDepartureRunwayLength;
-
-    private Date arrivalDate;
-    boolean presence;
-
-    private Date runwayDemandDate;
-    private boolean waiting;
-
-    private Date departureDate;
     private int priority;
 
     public AirplaneDto() {
@@ -26,9 +18,14 @@ public class AirplaneDto {
         this.type = null;
         this.code = code;
         this.minDepartureRunwayLength = 0;
-        this.priority = 0;
-        this.presence = false;
-        this.waiting = false;
+    }
+
+    public AirplaneDto(String manufacturer, String type, String code, int minDepartureRunwayLength, int priority) {
+        this.manufacturer = manufacturer;
+        this.type = type;
+        this.code = code;
+        this.minDepartureRunwayLength = minDepartureRunwayLength;
+        this.priority = priority;
     }
 
     public String getManufacturer() {
@@ -63,45 +60,7 @@ public class AirplaneDto {
         return minDepartureRunwayLength;
     }
 
-    public boolean isWaiting() {
-        return waiting;
-    }
 
-    public boolean isPresence() {
-        return presence;
-    }
-
-    public void setWaiting(boolean waiting) {
-        this.waiting = waiting;
-    }
-
-    public void setPresence(boolean presence) {
-        this.presence = presence;
-    }
-
-    public Date getArrivalDate() {
-        return arrivalDate;
-    }
-
-    public void setArrivalDate(Date arrivalDate) {
-        this.arrivalDate = arrivalDate;
-    }
-
-    public Date getRunwayDemandDate() {
-        return runwayDemandDate;
-    }
-
-    public void setRunwayDemandDate(Date runwayDemandDate) {
-        this.runwayDemandDate = runwayDemandDate;
-    }
-
-    public Date getDepartureDate() {
-        return departureDate;
-    }
-
-    public void setDepartureDate(Date departureDate) {
-        this.departureDate = departureDate;
-    }
 
     public int getPriority() {
         return priority;
@@ -111,19 +70,15 @@ public class AirplaneDto {
         this.priority = priority;
     }
 
+
     @Override
     public String toString() {
-        return "AirplaneDto{" +
-                "manufacturer='" + manufacturer + '\'' +
-                ", type='" + type + '\'' +
-                ", code='" + code + '\'' +
-                ", minDepartureRunwayLength=" + minDepartureRunwayLength +
-                ", arrivalDate=" + arrivalDate +
-                ", presence=" + presence +
-                ", runwayDemandDate=" + runwayDemandDate +
-                ", waiting=" + waiting +
-                ", departureDate=" + departureDate +
-                ", priority=" + priority +
-                '}';
+        return "Airplane { " +
+                "manufacturer = " + manufacturer +
+                ", type = " + type +
+                ", code = " + code +
+                ", min departure length = " + minDepartureRunwayLength +
+                ", priority = " + priority +
+                "}";
     }
 }

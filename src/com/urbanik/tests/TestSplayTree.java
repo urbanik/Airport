@@ -66,33 +66,26 @@ public class TestSplayTree {
                     int data = numbers.get(numbers.size() - 1);
                     list.add(data);
                     tree.insert(data);
-                    System.out.println("Inserted: " + data);
-                    System.out.println("Root: " + tree.getRoot().getData());
-                    if (data == (Integer) tree.getRoot().getData()) {
-                        System.out.println("YES, inserted node is in root!");
-                    } else {
+                    if (data != (Integer) tree.getRoot().getData()) {
                         System.out.println("NAH, inserted node is not in root!");
                     }
                     numbers.remove(numbers.size() - 1);
+                    break;
                 }
                 case 1: {
                     int index = random.nextInt(list.size() - 1);
                     int data = list.get(index);
-                    System.out.println("Deleting: " + data);
                     list.remove(index);
                     tree.remove(data);
+                    break;
                 }
                 case 2: {
                     int toFound = list.get(list.size() - 1); // TEST ZE AK SA NAJDE TAK HO POROVNA S VRCHOLOM MUSI SEDIET
-                    System.out.println("Finding: " + toFound);
                     Node n = tree.find(toFound);
-
-                    System.out.println("Root: " + tree.getRoot().getData());
-                    if (n == tree.getRoot()) {
-                        System.out.println("YES, found node is in root!");
-                    } else {
+                    if (n != tree.getRoot()) {
                         System.out.println("NAH, found node is not in root!");
                     }
+                    break;
                 }
             }
         }
